@@ -1,10 +1,11 @@
 # get-wifi-passwords-from-devices
 The script in this repository gets all WiFi SSIDs and the passwords stored from a device (at the moment only Windows devices are supported).
+Python Version used: 3.7.3 
 
 ## Modules used
 The python modules used for this script are listed below:
 
-| Library | Description |
+| Module | Description |
 | ------ | ------ |
 | subprocess | This module is used to run new applications or programs through Python code by creating new processes |
 | re | This module provides regular expression matching operations |
