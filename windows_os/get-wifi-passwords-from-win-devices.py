@@ -1,12 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[34]:
-
-
-#The script gets all WiFi SSIDs and the passwords stored from a Windows device
-#Important: The Terminal was written in pt-BR, so make sure to adapt the regular expressions used in this script
-
+####################################################################################################################
+#The script gets all WiFi SSIDs and the passwords stored from a Windows device                                     #
+#Important: The Terminal was written in pt-BR, so make sure to adapt the regular expressions used in this script   #
+####################################################################################################################
 #Libs:
 #Importing subprocess lib, allow us to run system commands
 import subprocess
@@ -14,17 +12,10 @@ import subprocess
 import re
 
 
-# In[35]:
-
-
 #save into a variable string the content output from the system command line 'netsh wlan show profiles'
 terminal_output = subprocess.run(['netsh', 'wlan', 'show', 'profiles'], capture_output=True).stdout
 
 #print(terminal_output.decode("utf-8", "ignore"))
-
-
-# In[36]:
-
 
 
 #find all the wifi names which are listed after 'Todos os Perfis de Usuários: ' (ignoring special string)
@@ -34,11 +25,6 @@ profile_names = (re.findall("Todos os Perfis de Usurios: (.*)\r", terminal_outpu
 #Prints all wifi saved in this device
 print("\n========================================================================\n")
 print(str(len(profile_names)) + " WiFi SSIDs were found on this device..\n")
-
-
-# In[37]:
-
-
 
 
 #Empty list to store the wifi profiles and passwords
@@ -71,9 +57,6 @@ if len(profile_names) != 0:
             else:
                 wifi_connections["password"] = password[1]
         wifi_list.append(wifi_connections)
-
-
-# In[38]:
 
 
 #Prints all the wifi and passwords saved in this list
